@@ -1,0 +1,356 @@
+openapi: 3.0.1
+info:
+  title: Savings Account
+  description: 'This service domain orchestrates a consumer savings account. The typical range of services and fees covers payments from and scheduled and ad-hoc deposits to the account, standing orders, sweeps, and liens.'
+  version: 11.0.0
+servers:
+  - url: https://virtserver.swaggerhub.com/BIAN-3/BIAN/SavingsAccount/11.0.0
+paths:
+  '/SavingsAccount/{savingsaccountid}/Deposits/Initiate':
+    post:
+      tags:
+        - BQ - DepositsandWithdrawals
+      summary: InBQ Initialize deposit transaction
+      description: InBQ Initialize deposit transaction
+      operationId: InitiateDepositsTransaction
+      parameters:
+        - $ref: '#/components/parameters/savingsaccountid'
+      requestBody:
+        $ref: '#/components/requestBodies/InitiateDepositRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/InitiateDepositsandWithdrawalsResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  '/SavingsAccount/{savingsaccountid}/withdrawal/Initiate':
+    post:
+      tags:
+        - BQ - DepositsandWithdrawals
+      summary: InBQ Initialize withdrawal transaction
+      description: InBQ Initialize withdrawal transaction
+      operationId: InitiateWithdrawals
+      parameters:
+        - $ref: '#/components/parameters/savingsaccountid'
+      requestBody:
+        $ref: '#/components/requestBodies/InitiateWithdrawalRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/InitiateDepositsandWithdrawalsResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  '/SavingsAccount/{savingsaccountid}/transactions/Retrieve':
+    get:
+      tags:
+        - BQ - DepositsandWithdrawals
+      summary: ReBQ Retrieve details about all transactions
+      description: ReBQ Retrieve details about all transactions
+      operationId: RetrieveAllTransactions
+      parameters:
+        - $ref: '#/components/parameters/savingsaccountid'
+      responses:
+        '200':
+          $ref: '#/components/responses/RetrieveTransactionsResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+    SavingsAccountFacility:
+          type: object
+          properties:
+            ProductInstanceReference:
+              type: string
+              description: "\n"
+              format: object
+            SavingsAccountNumber:
+              description: "\n"
+              format: string
+              type: integer
+            CustomerReference:
+              type: string
+              description: "\n"
+              format: object
+            BankBranchLocationReference:
+              type: string
+              description: "\n"
+              format: object
+            AccountType:
+              type: string
+              description: "\n"
+              format: string
+            AccountCurrency:
+              type: string
+              description: "\n"
+              format: string
+            EntitlementOptionSetting:
+              type: string
+              description: "\n"
+              format: string
+            RestrictionOptionSetting:
+              type: string
+              description: "\n"
+              format: string
+            PositionLimitType:
+              type: string
+              description: "\n"
+              format: string
+            TransactionDateType:
+              type: string
+              description: "\n"
+              format: string
+    DepositsandWithdrawals:
+          type: object
+          properties:
+            TransactionType:
+              type: string
+              description: "\n"
+              format: string
+            TransactionAmount:
+              type: string
+              description: "\n"
+              format: string
+            TransactionDescription:
+              type: string
+              description: "\n"
+              format: string
+            AccountLimitBreachResponse:
+              type: string
+              description: "\n"
+              format: string
+    Transactions:
+      type: object
+      properties:
+        TransactionReference:
+              type: string
+              description: "\n"
+              format: string
+        TransactionType:
+              type: string
+              description: "\n"
+              format: string
+        AccountLimitBreachResponse:
+              type: string
+              description: "\n"
+              format: string
+        TransactionDescription:
+              type: string
+              description: "\n"
+              format: string
+        TransactionAmount:
+              type: string
+              description: "\n"
+              format: string
+        TransactionDate:
+              type: string
+              description: "\n"
+              format: string
+    SavingsAccountFacilityResponse:
+          type: object
+          properties:
+            TransactionReference:
+              type: string
+              description: "\n"
+              format: string
+            PositionLimitValue:
+              type: string
+              description: "\n"
+              format: string
+            DateType:
+              type: string
+              description: "\n"
+              format: string
+    HTTPError:
+      type: object
+      properties:
+        status_code:
+          type: string
+          description: "\n"
+          format: string
+        status:
+          type: string
+          description: "\n"
+          format: string
+        message:
+          type: string
+          description: "\n"
+          format: string
+    InitiateDepositsandWithdrawalsResponse:
+      type: object
+      properties:
+        SavingsAccountFacilityResponse:
+          $ref: '#/components/schemas/SavingsAccountFacilityResponse'
+    InitiateWithdrawalRequest:
+      type: object
+      properties:
+        SavingsAccountFacility:
+          $ref: '#/components/schemas/SavingsAccountFacility'
+        DepositsandWithdrawals:
+          $ref: '#/components/schemas/DepositsandWithdrawals'
+    InitiateDepositRequest:
+      type: object
+      properties:
+        SavingsAccountFacility:
+          $ref: '#/components/schemas/SavingsAccountFacility'
+        DepositsandWithdrawals:
+          $ref: '#/components/schemas/DepositsandWithdrawals'
+    RetrieveTransactionsResponse:
+      type: object
+      properties:
+        Transactions:
+          $ref: '#/components/schemas/Transactions'
+  requestBodies:
+    InitiateWithdrawalRequest:
+      description: InitiateWithdrawal
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InitiateWithdrawalRequest'
+    InitiateDepositRequest:
+      description: InitiateDeposit
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InitiateDepositRequest'
+      required: true
+    DepositsandWithdrawals:
+      description: DepositsandWithdrawals
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DepositsandWithdrawals'
+      required: true
+  responses:
+    RetrieveTransactionsResponse:
+      description: allTransactions
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RetrieveTransactionsResponse'
+    InitiateDepositsandWithdrawalsResponse:
+      description: allTransactions
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InitiateDepositsandWithdrawalsResponse'
+    BadRequest:
+      description: BadRequest
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HTTPError'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HTTPError'
+    Forbidden:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HTTPError'
+    NotFound:
+      description: NotFound
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HTTPError'
+    TooManyRequests:
+      description: TooManyRequests
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HTTPError'
+    InternalServerError:
+      description: InternalServerError
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HTTPError'
+  parameters:
+    savingsaccountid:
+      name: savingsaccountid
+      in: path
+      required: true
+      style: simple
+      schema:
+        type: string
+    interestid:
+      name: interestid
+      in: path
+      required: true
+      style: simple
+      schema:
+        type: string
+    servicefeesid:
+      name: servicefeesid
+      in: path
+      required: true
+      style: simple
+      schema:
+        type: string
+    accountlienid:
+      name: accountlienid
+      in: path
+      required: true
+      style: simple
+      schema:
+        type: string
+    accountsweepid:
+      name: accountsweepid
+      in: path
+      required: true
+      style: simple
+      schema:
+        type: string
+    depositsandwithdrawalsid:
+      name: depositsandwithdrawalsid
+      in: path
+      required: true
+      style: simple
+      schema:
+        type: string
+    paymentsid:
+      name: paymentsid
+      in: path
+      required: true
+      style: simple
+      schema:
+        type: string
+    issueddeviceid:
+      name: issueddeviceid
+      in: path
+      required: true
+      style: simple
+      schema:
+        type: string
