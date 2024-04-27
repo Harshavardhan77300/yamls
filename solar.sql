@@ -4,11 +4,12 @@ USE `rest_db`;
 -- Table 1: Customer
 DROP TABLE IF EXISTS `customer`;
 CREATE TABLE `customer` (
+  `id` INT NOT NULL AUTO_INCREMENT,
   `customerid` VARCHAR(255) NOT NULL,
   `siteid` VARCHAR(255),
   `deviceid` INT,
   `userid` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`customerid`),
+  PRIMARY KEY (`id`),
   UNIQUE KEY `uk_userid` (`userid`),
   FOREIGN KEY (`deviceid`) REFERENCES `common_model_data`(`C_SunSpec_DID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -16,6 +17,7 @@ CREATE TABLE `customer` (
 -- Table 2: common_model_data
 DROP TABLE IF EXISTS `common_model_data`;
 CREATE TABLE `common_model_data` (
+  `id` INT NOT NULL AUTO_INCREMENT,
   `C_SunSpec_DID` INT NOT NULL,
   `C_SunSpec_ID` VARCHAR(255),
   `C_SunSpec_Length` INT,
@@ -24,12 +26,14 @@ CREATE TABLE `common_model_data` (
   `C_Version` VARCHAR(255),
   `C_SerialNumber` VARCHAR(255),
   `C_DeviceAddress` VARCHAR(255),
-  PRIMARY KEY (`C_SunSpec_DID`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_C_SunSpec_DID` (`C_SunSpec_DID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Table 3: get_device_status_data
 DROP TABLE IF EXISTS `get_device_status_data`;
 CREATE TABLE `get_device_status_data` (
+  `id` INT NOT NULL AUTO_INCREMENT,
   `C_SunSpec_DID` INT NOT NULL,
   `C_SunSpec_Length` INT,
   `I_AC_Current` FLOAT,
@@ -66,6 +70,6 @@ CREATE TABLE `get_device_status_data` (
   `I_Temp_SF` FLOAT,
   `I_Status` VARCHAR(255),
   `I_Status_Vendor` VARCHAR(255),
-  PRIMARY KEY (`C_SunSpec_DID`),
+  PRIMARY KEY (`id`),
   FOREIGN KEY (`C_SunSpec_DID`) REFERENCES `common_model_data`(`C_SunSpec_DID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
