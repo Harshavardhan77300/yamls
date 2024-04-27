@@ -70,7 +70,7 @@ CREATE TABLE `get_device_status_data` (
   `I_Temp_SF` FLOAT,
   `I_Status` VARCHAR(255),
   `I_Status_Vendor` VARCHAR(255),
-  `timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `Time_stamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`C_SunSpec_DID`) REFERENCES `common_model_data`(`C_SunSpec_DID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
