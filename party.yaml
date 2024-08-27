@@ -1,0 +1,583 @@
+openapi: 3.0.1
+info:
+  title: Party
+  description: This API provides endpoints for managing customer information, including creating, retrieving, updating customer records.
+  version: 11.0.1
+servers:
+- url: ' https://virtserver.swaggerhub.com/BIAN-3/CurrentAccount/12.0.1'
+paths:
+   /Party/Initiate:
+    post:
+      tags:
+          - Party Facility
+      summary: InCR Initiate A new party
+      description: InCR Initiate A party
+      operationId: InitiateParty
+      requestBody:
+        $ref: '#/components/requestBodies/InitiatePartyRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/InitiatePartyResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+   /PartyAddress/Initiate:
+    post:
+      tags:
+          - Party Address
+      summary: InCR Initiate A party address
+      description: InCR Initiate A party address
+      operationId: InitiateAddress
+      requestBody:
+        $ref: '#/components/requestBodies/InitiatePartyAddressRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/InitiatePartyAddressResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+   /Party/{PartyReference}/Retrieve:
+    get:
+      tags:
+          - Party Facility
+      summary: InCR Retrieve A party
+      description: InCR Retrieve A party
+      operationId: RetrieveParty
+      parameters:
+        - $ref: '#/components/parameters/PartyReference'
+      responses:
+        '200':
+          $ref: '#/components/responses/RetrievePartyResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+   /Party/Search:
+    get:
+      tags:
+          - Party Facility
+      summary: Check a party exists
+      description: Check a party exists
+      operationId: CheckParty
+      parameters:
+        - $ref: '#/components/parameters/email_identifiers'
+        - $ref: '#/components/parameters/phone_identifiers'
+      responses:
+        '200':
+          $ref: '#/components/responses/RetrievePartyResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+    PartyName:
+          type: object
+          properties:
+            FirstName:
+              type: string
+              description: "\n"
+              format: string
+            MiddleName:
+              type: string
+              description: "\n"
+              format: string
+            LastName:
+              type: string
+              description: "\n"
+              format: string
+    ElectronicAddressType:
+          type: object
+          properties:
+            ElectronicAddressTypeValue:
+              type: string
+              description: "\n"
+              format: string
+            AddressDescription:
+              type: string
+              description: "\n"
+              format: string
+    MobilePhoneAddressType:
+          type: object
+          properties:
+            PhoneAddressTypeValue:
+              type: string
+              description: "\n"
+              format: string
+            PhoneNumber:
+              type: string
+              description: "\n"
+              format: string
+    HomePhoneAddressType:
+          type: object
+          properties:
+            PhoneAddressTypeValue:
+              type: string
+              description: "\n"
+              format: string
+            HomePhoneNumber:
+              type: string
+              description: "\n"
+              format: string
+    IdentifierStartDate:
+                type: object
+                properties:
+                  DateTimeContent:
+                    type: string
+                    description: "\n"
+                    format: string
+    IdentifierEndDate:
+                type: object
+                properties:
+                  DateTimeContent:
+                    type: string
+                    description: "\n"
+                    format: string
+    PartyIdentification:
+          type: array
+          items:
+            type: object
+            properties:
+              SerialNumber:
+                type: string
+                description: "\n"
+                format: string
+              PartyIdentificationType:
+                type: string
+                description: "\n"
+                format: string
+              PartyIdentification:
+                type: string
+                description: "\n"
+                format: string
+              IdentificationDocumentUrl:
+                type: string
+                description: "\n"
+                format: string
+              IdentifierIssuingAuthority:
+                type: string
+                description: "\n"
+                format: string
+              IdentifierStartDate:
+                $ref: '#/components/schemas/IdentifierStartDate'
+              IdentifierEndDate:
+                $ref: '#/components/schemas/IdentifierEndDate'
+    PartyAddress:
+        type: object
+        properties:
+          PartyReference:
+            type: string
+            description: "\n"
+            format: string
+          SerialNumber:
+            type: string
+            description: "\n"
+            format: string
+          BuildingName:
+            type: string
+            description: "\n"
+            format: string
+          StreetBuildingIdentification:
+            type: string
+            description: "\n"
+            format: string
+          StreetName:
+            type: string
+            description: "\n"
+            format: string
+          Municipality:
+            type: string
+            description: "\n"
+            format: string
+          TownName:
+            type: string
+            description: "\n"
+            format: string
+          PostCodeIdentification:
+            type: string
+            description: "\n"
+            format: string
+          District:
+            type: string
+            description: "\n"
+            format: string
+          Country:
+            type: string
+            description: "\n"
+            format: string
+          AddressType:
+            type: string
+            description: "\n"
+            format: string
+          FromDateTime:
+            type: string
+            description: "\n"
+            format: string
+          ToDateTime:
+            type: string
+            description: "\n"
+            format: string
+    PartyRequest:
+          type: object
+          properties:
+            PartyName:
+              $ref: '#/components/schemas/PartyName'
+            Title:
+              type: string
+              description: "\n"
+              format: string
+            BirthDate:
+              type: string
+              description: "\n"
+              format: string
+            Gender:
+              type: string
+              description: "\n"
+              format: string
+            Nationality:
+              type: string
+              description: "\n"
+              format: string
+            Residence:
+              type: string
+              description: "\n"
+              format: string
+            TaxCountry:
+              type: string
+              description: "\n"
+              format: string
+            Description:
+              type: string
+              description: "\n"
+              format: string
+            ElectronicAddressType:
+              $ref: '#/components/schemas/ElectronicAddressType'
+            MobilePhoneAddressType:
+              $ref: '#/components/schemas/MobilePhoneAddressType'
+            HomePhoneAddressType:
+              $ref: '#/components/schemas/HomePhoneAddressType'
+            PartyLegalStructureType:
+              type: string
+              description: "\n"
+              format: string
+            BranchIdentification:
+              type: string
+              description: "\n"
+              format: string
+            PartyUserIdentifier:
+              type: string
+              description: "\n"
+              format: string
+            PartyRoleIdentifier:
+              type: string
+              description: "\n"
+              format: string
+            PartyIdentification:
+              $ref: '#/components/schemas/PartyIdentification'
+            PartyInvolvementType:
+              type: string
+              description: "\n"
+              format: string
+    PartyResponse:
+          type: object
+          properties:
+            PartyReference:
+              type: string
+              description: "\n"
+              format: string
+            Status:
+              type: string
+              description: "\n"
+              format: string
+            PartyName:
+              $ref: '#/components/schemas/PartyName'
+            Title:
+              type: string
+              description: "\n"
+              format: string
+            BirthDate:
+              type: string
+              description: "\n"
+              format: string
+            Gender:
+              type: string
+              description: "\n"
+              format: string
+            Nationality:
+              type: string
+              description: "\n"
+              format: string
+            Residence:
+              type: string
+              description: "\n"
+              format: string
+            TaxCountry:
+              type: string
+              description: "\n"
+              format: string
+            Description:
+              type: string
+              description: "\n"
+              format: string
+            ElectronicAddressType:
+              $ref: '#/components/schemas/ElectronicAddressType'
+            MobilePhoneAddressType:
+              $ref: '#/components/schemas/MobilePhoneAddressType'
+            HomePhoneAddressType:
+              $ref: '#/components/schemas/HomePhoneAddressType'
+            PartyLegalStructureType:
+              type: string
+              description: "\n"
+              format: string
+            BranchIdentification:
+              type: string
+              description: "\n"
+              format: string
+            PartyUserIdentifier:
+              type: string
+              description: "\n"
+              format: string
+            PartyRoleIdentifier:
+              type: string
+              description: "\n"
+              format: string
+            PartyIdentification:
+              $ref: '#/components/schemas/PartyIdentification'
+            PartyInvolvementType:
+              type: string
+              description: "\n"
+              format: string
+    GetPartyResponse:
+          type: object
+          properties:
+            PartyReference:
+              type: string
+              description: "\n"
+              format: string
+            Status:
+              type: string
+              description: "\n"
+              format: string
+            PartyName:
+              $ref: '#/components/schemas/PartyName'
+            Title:
+              type: string
+              description: "\n"
+              format: string
+            BirthDate:
+              type: string
+              description: "\n"
+              format: string
+            Gender:
+              type: string
+              description: "\n"
+              format: string
+            Nationality:
+              type: string
+              description: "\n"
+              format: string
+            Residence:
+              type: string
+              description: "\n"
+              format: string
+            TaxCountry:
+              type: string
+              description: "\n"
+              format: string
+            Description:
+              type: string
+              description: "\n"
+              format: string
+            ElectronicAddressType:
+              $ref: '#/components/schemas/ElectronicAddressType'
+            MobilePhoneAddressType:
+              $ref: '#/components/schemas/MobilePhoneAddressType'
+            HomePhoneAddressType:
+              $ref: '#/components/schemas/HomePhoneAddressType'
+            PartyLegalStructureType:
+              type: string
+              description: "\n"
+              format: string
+            BranchIdentification:
+              type: string
+              description: "\n"
+              format: string
+            PartyUserIdentifier:
+              type: string
+              description: "\n"
+              format: string
+            PartyRoleIdentifier:
+              type: string
+              description: "\n"
+              format: string
+            PartyIdentification:
+              $ref: '#/components/schemas/PartyIdentification'
+            PartyAddress:
+              type: array
+              items:
+                $ref: '#/components/schemas/PartyAddress'
+            PartyInvolvementType:
+              type: string
+              description: "\n"
+              format: string
+    InitiatePartyAddressRequest:
+      type: object
+      properties:
+        PartyAddress:
+          $ref: '#/components/schemas/PartyAddress'
+    InitiatePartyAddressResponse:
+      type: object
+      properties:
+        PartyAddress:
+          $ref: '#/components/schemas/PartyAddress'
+    InitiatePartyRequest:
+      type: object
+      properties:
+        PartyRequest:
+          $ref: '#/components/schemas/PartyRequest'
+    InitiatePartyResponse:
+      type: object
+      properties:
+        PartyResponse:
+          $ref: '#/components/schemas/PartyResponse'
+    RetrievePartyResponse:
+      type: object
+      properties:
+        Party:
+          $ref: '#/components/schemas/GetPartyResponse'
+    HTTPError:
+      type: object
+      properties:
+        status_code:
+          type: string
+          description: "\n"
+          format: string
+        status:
+          type: string
+          description: "\n"
+          format: string
+        message:
+          type: string
+          description: "\n"
+          format: string
+  parameters:
+    PartyReference:
+      name: PartyReference
+      in: path
+      required: true
+      schema:
+        type: string
+    email_identifiers:
+      name: email_identifiers
+      in: query
+      required: false
+      schema:
+        type: string
+    phone_identifiers:
+      name: phone_identifiers
+      in: query
+      required: false
+      schema:
+        type: string
+  requestBodies:
+    InitiatePartyRequest:
+        description: Initiate New Party
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/InitiatePartyRequest'
+    InitiatePartyAddressRequest:
+        description: Initiate New Party
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/InitiatePartyAddressRequest'
+  responses:
+    InitiatePartyResponse:
+        description: PartyFacility 
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/InitiatePartyResponse'
+    RetrievePartyResponse:
+        description: PartyFacility 
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/RetrievePartyResponse'  
+    InitiatePartyAddressResponse:
+        description: Initiate New Party
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/InitiatePartyAddressResponse'
+    BadRequest:
+      description: BadRequest
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HTTPError'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HTTPError'
+    Forbidden:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HTTPError'
+    NotFound:
+      description: NotFound
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HTTPError'
+    TooManyRequests:
+      description: TooManyRequests
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HTTPError'
+    InternalServerError:
+      description: InternalServerError
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HTTPError'
