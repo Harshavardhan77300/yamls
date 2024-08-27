@@ -467,7 +467,7 @@ components:
     InitiatePartyRequest:
       type: object
       properties:
-        PartyRequest:
+        Party:
           $ref: '#/components/schemas/PartyRequest'
     InitiatePartyResponse:
       type: object
