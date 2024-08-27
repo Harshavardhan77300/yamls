@@ -477,7 +477,7 @@ components:
     RetrievePartyResponse:
       type: object
       properties:
-        Party:
+        GetPartyResponse:
           $ref: '#/components/schemas/GetPartyResponse'
     HTTPError:
       type: object
