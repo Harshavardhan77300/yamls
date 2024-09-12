@@ -35,5 +35,6 @@ CREATE TABLE if not exists `beneficiary_details`(
 `city` varchar(16),
 `state` varchar(16),
 `country_code` varchar(16),
-`postal_code` varchar(15)
+`postal_code` varchar(15),
+PRIMARY KEY (`beneficiary_id`)
 );
