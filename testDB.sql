@@ -2,7 +2,7 @@ CREATE DATABASE 'finx_beneficiary_db';
 USE `finx_beneficiary_db`;
 
 DROP TABLE IF EXISTS `beneficiary_details`;
-CREATE TABLE `beneficiary_details`(
+CREATE TABLE `beneficiary_details` (
 `beneficiary_id` uuid NOT NULL,
 `beneficiary_short_name` varchar(50) NOT NULL,
 `customer_id` varchar(32) NOT NULL,
