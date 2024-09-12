@@ -1,6 +1,8 @@
-CREATE DATABASE IF NOT exists `finx_beneficiary_db` WITH owner=root;
+CREATE DATABASE `finx_beneficiary_db`;
+USE `finx_beneficiary_db`;
 
-CREATE TABLE if not exists `beneficiary_details`(
+DROP TABLE IF EXISTS `beneficiary_details`;
+CREATE TABLE `beneficiary_details`(
 `beneficiary_id` uuid NOT NULL,
 `beneficiary_short_name` varchar(50) NOT NULL,
 `customer_id` varchar(32) NOT NULL,
