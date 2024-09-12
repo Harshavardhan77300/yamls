@@ -1,4 +1,4 @@
-CREATE DATABASE `finx_beneficiary_db`;
+CREATE DATABASE 'finx_beneficiary_db';
 USE `finx_beneficiary_db`;
 
 DROP TABLE IF EXISTS `beneficiary_details`;
