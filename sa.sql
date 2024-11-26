@@ -5,6 +5,15 @@ USE `savings_account_db`;
 DROP TABLE IF EXISTS `deposits`;
 CREATE TABLE `deposits` (
   `savings_account_number` int NOT NULL,
+  `product_instance_reference` varchar(255),
+  `customer_reference` varchar(255),
+  `bank_branch_location_reference` varchar(255),
+  `account_type` enum('Savings Account', 'Checking Account', 'Deposit Account', 'Current Account'),
+  `account_currency` varchar(10),
+  `entitlement_option_setting` varchar(255),
+  `restriction_option_setting` varchar(255),
+  `position_limit_type` varchar(255),
+  `transaction_date_type` varchar(255),
   `transaction_type` varchar(50),
   `transaction_amount` decimal(15, 2),
   `transaction_description` varchar(255),
@@ -16,6 +25,15 @@ CREATE TABLE `deposits` (
 DROP TABLE IF EXISTS `withdrawals`;
 CREATE TABLE `withdrawals` (
   `savings_account_number` int NOT NULL,
+  `product_instance_reference` varchar(255),
+  `customer_reference` varchar(255),
+  `bank_branch_location_reference` varchar(255),
+  `account_type` enum('Savings Account', 'Checking Account', 'Deposit Account', 'Current Account'),
+  `account_currency` varchar(10),
+  `entitlement_option_setting` varchar(255),
+  `restriction_option_setting` varchar(255),
+  `position_limit_type` varchar(255),
+  `transaction_date_type` varchar(255),
   `transaction_type` varchar(50),
   `transaction_amount` decimal(15, 2),
   `transaction_description` varchar(255),
@@ -31,7 +49,7 @@ CREATE TABLE `transactions` (
   `transaction_type` varchar(50),
   `account_limit_breach_response` varchar(255),
   `transaction_description` varchar(255),
-  `transaction_amount` decimal(15, 2),
-  `transaction_date` datetime,
+  `transaction_amount` varchar(255),
+  `transaction_date` varchar(255),
   PRIMARY KEY (`savings_account_number`, `transaction_reference`)
 );
