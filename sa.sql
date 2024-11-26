@@ -51,5 +51,5 @@ CREATE TABLE `transactions` (
   `transaction_description` varchar(255),
   `transaction_amount` varchar(255),
   `transaction_date` varchar(255),
-  PRIMARY KEY (`savings_account_number`, `transaction_reference`)
+  PRIMARY KEY (`savings_account_number`)
 );
