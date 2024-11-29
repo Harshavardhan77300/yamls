@@ -22,8 +22,8 @@ CREATE TABLE `deposits` (
 );
 
 -- Table for Withdrawals schema
-DROP TABLE IF EXISTS `withdrawals`;
-CREATE TABLE `withdrawals` (
+DROP TABLE IF EXISTS `withdrawal`;
+CREATE TABLE `withdrawal` (
   `savings_account_number` int NOT NULL,
   `product_instance_reference` varchar(255),
   `customer_reference` varchar(255),
