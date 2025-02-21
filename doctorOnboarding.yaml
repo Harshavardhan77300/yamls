@@ -1,0 +1,169 @@
+openapi: 3.0.1
+info:
+  title: Doctor Onboarding
+  description: 'API for doctor onboarding, authentication, and accreditation verification.'
+  version: 1.0.0
+servers:
+  - url: https://virtserver.swaggerhub.com/BIAN-3/BIAN/DoctorOnboarding/11.0.0
+paths:
+  /doctor/professional-info:
+    post:
+      tags:
+        - Doctor Registration
+      summary: Register professional information
+      description: Submit doctor's professional details.
+      operationId: registerProfessionalInfo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProfessionalInfo'
+      responses:
+        '200':
+          description: Success
+        '400':
+          $ref: '#/components/responses/BadRequest'
+    get:
+      tags:
+        - Doctor Registration
+      summary: Get professional information
+      description: Retrieve doctor's professional details.
+      operationId: getProfessionalInfo
+      parameters:
+        - name: doctorId
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Professional Info Retrieved Successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfessionalInfo'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  
+  /doctor/authenticate:
+    post:
+      tags:
+        - Authentication
+      summary: Authenticate via OTP
+      description: Verify doctor via phone number and email OTP.
+      operationId: authenticateDoctor
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Authentication'
+      responses:
+        '200':
+          description: OTP Sent Successfully
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  
+  /doctor/accreditation:
+    post:
+      tags:
+        - Accreditation
+      summary: Submit accreditation details
+      description: Submit medical registration details and upload certificate.
+      operationId: submitAccreditation
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Accreditation'
+      responses:
+        '200':
+          description: Accreditation Submitted Successfully
+        '400':
+          $ref: '#/components/responses/BadRequest'
+    get:
+      tags:
+        - Accreditation
+      summary: Get accreditation details
+      description: Retrieve doctor's accreditation details.
+      operationId: getAccreditation
+      parameters:
+        - name: doctorId
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Accreditation Details Retrieved Successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Accreditation'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+components:
+  schemas:
+    ProfessionalInfo:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Full Name including title
+        specialization:
+          type: string
+          description: Medical specialization
+        yearsOfExperience:
+          type: integer
+          description: Years of experience
+        clinicAddress:
+          type: object
+          properties:
+            addressLine1:
+              type: string
+            addressLine2:
+              type: string
+            locality:
+              type: string
+            pinCode:
+              type: integer
+    
+    Authentication:
+      type: object
+      properties:
+        phoneNumber:
+          type: string
+          description: Unique phone number
+        email:
+          type: string
+          description: Unique email address
+
+    Accreditation:
+      type: object
+      properties:
+        medicalRegistrationNumber:
+          type: string
+          description: Medical Registration ID
+        medicalCouncil:
+          type: string
+          description: Name of medical council
+        certificate:
+          type: string
+          format: binary
+          description: Medical registration certificate (JPG, PNG, PDF up to 5MB)
+
+  responses:
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              message:
+                type: string
