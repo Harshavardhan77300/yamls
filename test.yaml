@@ -766,7 +766,7 @@ components:
       content:
         application/json:
           schema:
-          $ref: '#/components/schemas/resources'
+            $ref: '#/components/schemas/resources'
     InitiateactionsResponse:
       description: actions created
       content:
