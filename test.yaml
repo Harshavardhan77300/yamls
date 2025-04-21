@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: rbac
   description: API for managing database records.
-  version: 1.0.0
+  version: 11.0.0
 servers:
   - url: http://api.example.com/v1
 paths:
@@ -30,31 +30,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /rbac/{clientsid}/clients/Retrieve:
-    get:
-      tags:
-        - BQ - clients
-      summary: Retrieve clients details
-      description: Retrieve clients details
-      operationId: Retrieveclients
-      parameters:
-        - $ref: '#/components/parameters/clientsid'
-      responses:
-        '200':
-          $ref: '#/components/responses/RetrieveclientsResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '429':
-          $ref: '#/components/responses/TooManyRequests'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-  /rbac/clients/Retrieve:
+  /rbac/getAllclients/Retrieve:
     get:
       tags:
         - BQ - clients
@@ -100,31 +76,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /rbac/{subjectsid}/subjects/Retrieve:
-    get:
-      tags:
-        - BQ - subjects
-      summary: Retrieve subjects details
-      description: Retrieve subjects details
-      operationId: Retrievesubjects
-      parameters:
-        - $ref: '#/components/parameters/subjectsid'
-      responses:
-        '200':
-          $ref: '#/components/responses/RetrievesubjectsResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '429':
-          $ref: '#/components/responses/TooManyRequests'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-  /rbac/subjects/Retrieve:
+  /rbac/getAllsubjects/Retrieve:
     get:
       tags:
         - BQ - subjects
@@ -170,31 +122,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /rbac/{contextsid}/contexts/Retrieve:
-    get:
-      tags:
-        - BQ - contexts
-      summary: Retrieve contexts details
-      description: Retrieve contexts details
-      operationId: Retrievecontexts
-      parameters:
-        - $ref: '#/components/parameters/contextsid'
-      responses:
-        '200':
-          $ref: '#/components/responses/RetrievecontextsResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '429':
-          $ref: '#/components/responses/TooManyRequests'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-  /rbac/contexts/Retrieve:
+  /rbac/getAllcontexts/Retrieve:
     get:
       tags:
         - BQ - contexts
@@ -240,31 +168,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /rbac/{resourcesid}/resources/Retrieve:
-    get:
-      tags:
-        - BQ - resources
-      summary: Retrieve resources details
-      description: Retrieve resources details
-      operationId: Retrieveresources
-      parameters:
-        - $ref: '#/components/parameters/resourcesid'
-      responses:
-        '200':
-          $ref: '#/components/responses/RetrieveresourcesResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '429':
-          $ref: '#/components/responses/TooManyRequests'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-  /rbac/resources/Retrieve:
+  /rbac/getAllresources/Retrieve:
     get:
       tags:
         - BQ - resources
@@ -310,31 +214,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /rbac/{actionsid}/actions/Retrieve:
-    get:
-      tags:
-        - BQ - actions
-      summary: Retrieve actions details
-      description: Retrieve actions details
-      operationId: Retrieveactions
-      parameters:
-        - $ref: '#/components/parameters/actionsid'
-      responses:
-        '200':
-          $ref: '#/components/responses/RetrieveactionsResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '429':
-          $ref: '#/components/responses/TooManyRequests'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-  /rbac/actions/Retrieve:
+  /rbac/getAllactions/Retrieve:
     get:
       tags:
         - BQ - actions
@@ -380,31 +260,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /rbac/{policiesid}/policies/Retrieve:
-    get:
-      tags:
-        - BQ - policies
-      summary: Retrieve policies details
-      description: Retrieve policies details
-      operationId: Retrievepolicies
-      parameters:
-        - $ref: '#/components/parameters/policiesid'
-      responses:
-        '200':
-          $ref: '#/components/responses/RetrievepoliciesResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '429':
-          $ref: '#/components/responses/TooManyRequests'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-  /rbac/policies/Retrieve:
+  /rbac/getAllpolicies/Retrieve:
     get:
       tags:
         - BQ - policies
@@ -455,7 +311,22 @@ components:
           type: string
           description: ''
           format: string
-    clientsResponse:
+    InitiateclientsResponse:
+      type: object
+      properties:
+        clients:
+          $ref: '#/components/schemas/clients'
+    InitiateclientsRequest:
+      type: object
+      properties:
+        clients:
+          $ref: '#/components/schemas/clients'
+    RetrieveclientsResponse:
+      type: object
+      properties:
+        clients:
+          $ref: '#/components/schemas/clients'
+    RetrieveclientsRequest:
       type: object
       properties:
         clients:
@@ -483,7 +354,22 @@ components:
           type: string
           description: ''
           format: string
-    subjectsResponse:
+    InitiatesubjectsResponse:
+      type: object
+      properties:
+        subjects:
+          $ref: '#/components/schemas/subjects'
+    InitiatesubjectsRequest:
+      type: object
+      properties:
+        subjects:
+          $ref: '#/components/schemas/subjects'
+    RetrievesubjectsResponse:
+      type: object
+      properties:
+        subjects:
+          $ref: '#/components/schemas/subjects'
+    RetrievesubjectsRequest:
       type: object
       properties:
         subjects:
@@ -511,7 +397,22 @@ components:
           type: string
           description: ''
           format: string
-    contextsResponse:
+    InitiatecontextsResponse:
+      type: object
+      properties:
+        contexts:
+          $ref: '#/components/schemas/contexts'
+    InitiatecontextsRequest:
+      type: object
+      properties:
+        contexts:
+          $ref: '#/components/schemas/contexts'
+    RetrievecontextsResponse:
+      type: object
+      properties:
+        contexts:
+          $ref: '#/components/schemas/contexts'
+    RetrievecontextsRequest:
       type: object
       properties:
         contexts:
@@ -543,7 +444,22 @@ components:
           type: string
           description: ''
           format: string
-    resourcesResponse:
+    InitiateresourcesResponse:
+      type: object
+      properties:
+        resources:
+          $ref: '#/components/schemas/resources'
+    InitiateresourcesRequest:
+      type: object
+      properties:
+        resources:
+          $ref: '#/components/schemas/resources'
+    RetrieveresourcesResponse:
+      type: object
+      properties:
+        resources:
+          $ref: '#/components/schemas/resources'
+    RetrieveresourcesRequest:
       type: object
       properties:
         resources:
@@ -571,7 +487,22 @@ components:
           type: string
           description: ''
           format: string
-    actionsResponse:
+    InitiateactionsResponse:
+      type: object
+      properties:
+        actions:
+          $ref: '#/components/schemas/actions'
+    InitiateactionsRequest:
+      type: object
+      properties:
+        actions:
+          $ref: '#/components/schemas/actions'
+    RetrieveactionsResponse:
+      type: object
+      properties:
+        actions:
+          $ref: '#/components/schemas/actions'
+    RetrieveactionsRequest:
       type: object
       properties:
         actions:
@@ -615,7 +546,22 @@ components:
           type: string
           description: ''
           format: string
-    policiesResponse:
+    InitiatepoliciesResponse:
+      type: object
+      properties:
+        policies:
+          $ref: '#/components/schemas/policies'
+    InitiatepoliciesRequest:
+      type: object
+      properties:
+        policies:
+          $ref: '#/components/schemas/policies'
+    RetrievepoliciesResponse:
+      type: object
+      properties:
+        policies:
+          $ref: '#/components/schemas/policies'
+    RetrievepoliciesRequest:
       type: object
       properties:
         policies:
@@ -681,116 +627,146 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/clients'
-      required: true
+            $ref: '#/components/schemas/InitiateclientsRequest'
+    RetrieveclientsRequest:
+      description: Retrieveclients
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RetrieveclientsRequest'
     InitiatesubjectsRequest:
       description: Initiatesubjects
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/subjects'
-      required: true
+            $ref: '#/components/schemas/InitiatesubjectsRequest'
+    RetrievesubjectsRequest:
+      description: Retrievesubjects
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RetrievesubjectsRequest'
     InitiatecontextsRequest:
       description: Initiatecontexts
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/contexts'
-      required: true
+            $ref: '#/components/schemas/InitiatecontextsRequest'
+    RetrievecontextsRequest:
+      description: Retrievecontexts
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RetrievecontextsRequest'
     InitiateresourcesRequest:
       description: Initiateresources
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/resources'
-      required: true
+            $ref: '#/components/schemas/InitiateresourcesRequest'
+    RetrieveresourcesRequest:
+      description: Retrieveresources
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RetrieveresourcesRequest'
     InitiateactionsRequest:
       description: Initiateactions
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/actions'
-      required: true
+            $ref: '#/components/schemas/InitiateactionsRequest'
+    RetrieveactionsRequest:
+      description: Retrieveactions
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RetrieveactionsRequest'
     InitiatepoliciesRequest:
       description: Initiatepolicies
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/policies'
-      required: true
+            $ref: '#/components/schemas/InitiatepoliciesRequest'
+    RetrievepoliciesRequest:
+      description: Retrievepolicies
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RetrievepoliciesRequest'
   responses:
     InitiateclientsResponse:
       description: clients created
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/clientsResponse'
+            $ref: '#/components/schemas/InitiateclientsResponse'
     RetrieveclientsResponse:
       description: clients details
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/clients'
+            $ref: '#/components/schemas/RetrieveclientsResponse'
     InitiatesubjectsResponse:
       description: subjects created
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/subjectsResponse'
+            $ref: '#/components/schemas/InitiatesubjectsResponse'
     RetrievesubjectsResponse:
       description: subjects details
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/subjects'
+            $ref: '#/components/schemas/RetrievesubjectsResponse'
     InitiatecontextsResponse:
       description: contexts created
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/contextsResponse'
+            $ref: '#/components/schemas/InitiatecontextsResponse'
     RetrievecontextsResponse:
       description: contexts details
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/contexts'
+            $ref: '#/components/schemas/RetrievecontextsResponse'
     InitiateresourcesResponse:
       description: resources created
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/resourcesResponse'
+            $ref: '#/components/schemas/InitiateresourcesResponse'
     RetrieveresourcesResponse:
       description: resources details
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/resources'
+            $ref: '#/components/schemas/RetrieveresourcesResponse'
     InitiateactionsResponse:
       description: actions created
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/actionsResponse'
+            $ref: '#/components/schemas/InitiateactionsResponse'
     RetrieveactionsResponse:
       description: actions details
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/actions'
+            $ref: '#/components/schemas/RetrieveactionsResponse'
     InitiatepoliciesResponse:
       description: policies created
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/policiesResponse'
+            $ref: '#/components/schemas/InitiatepoliciesResponse'
     RetrievepoliciesResponse:
       description: policies details
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/policies'
+            $ref: '#/components/schemas/RetrievepoliciesResponse'
     BadRequest:
       description: BadRequest
       content:
