@@ -6,7 +6,7 @@ info:
 servers:
   - url: http://api.example.com/v1
 paths:
-  /rbac/clients/Initiate:
+  '/rbac/clients/Initiate':
     post:
       tags:
         - BQ - clients
@@ -30,7 +30,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /rbac/{clientsid}/clients/Retrieve:
+  '/rbac/{clientsid}/clients/Retrieve':
     get:
       tags:
         - BQ - clients
@@ -54,33 +54,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /rbac/{clientsid}/clients/Initiate:
-    put:
-      tags:
-        - BQ - clients
-      summary: Update clients record
-      description: Update clients record
-      operationId: Updateclients
-      parameters:
-        - $ref: '#/components/parameters/clientsid'
-      requestBody:
-        $ref: '#/components/requestBodies/UpdateclientsRequest'
-      responses:
-        '200':
-          $ref: '#/components/responses/UpdateclientsResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '429':
-          $ref: '#/components/responses/TooManyRequests'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-  /rbac/clients/Retrieve:
+  '/rbac/clients/Retrieve':
     get:
       tags:
         - BQ - clients
@@ -589,27 +563,27 @@ components:
       properties:
         id:
           type: string
-          description: |+
+          description: "\n"
           format: string
         name:
           type: string
-          description: |+
+          description: "\n"
           format: string
         type:
           type: string
-          description: |+
+          description: "\n"
           format: string
         description:
           type: string
-          description: |+
+          description: "\n"
           format: string
         created_at:
           type: string
-          description: |+
+          description: "\n"
           format: string
         updated_at:
           type: string
-          description: |+
+          description: "\n"
           format: string
     clientsResponse:
       type: object
