@@ -730,12 +730,7 @@ components:
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              clients:
-                type: array
-                items:
-                  $ref: '#/components/schemas/clients'
+            $ref: '#/components/schemas/clients'
     InitiatesubjectsResponse:
       description: subjects created
       content:
@@ -747,12 +742,7 @@ components:
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              subjects:
-                type: array
-                items:
-                  $ref: '#/components/schemas/subjects'
+            $ref: '#/components/schemas/subjects'
     InitiatecontextsResponse:
       description: contexts created
       content:
@@ -764,12 +754,7 @@ components:
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              contexts:
-                type: array
-                items:
-                  $ref: '#/components/schemas/contexts'
+            $ref: '#/components/schemas/contexts'
     InitiateresourcesResponse:
       description: resources created
       content:
@@ -781,12 +766,7 @@ components:
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              resources:
-                type: array
-                items:
-                  $ref: '#/components/schemas/resources'
+          $ref: '#/components/schemas/resources'
     InitiateactionsResponse:
       description: actions created
       content:
@@ -798,12 +778,7 @@ components:
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              actions:
-                type: array
-                items:
-                  $ref: '#/components/schemas/actions'
+            $ref: '#/components/schemas/actions'
     InitiatepoliciesResponse:
       description: policies created
       content:
@@ -815,12 +790,7 @@ components:
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              policies:
-                type: array
-                items:
-                  $ref: '#/components/schemas/policies'
+            $ref: '#/components/schemas/policies'
     BadRequest:
       description: BadRequest
       content:
