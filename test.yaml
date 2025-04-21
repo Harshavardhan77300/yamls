@@ -6,7 +6,7 @@ info:
 servers:
   - url: http://api.example.com/v1
 paths:
-  '/rbac/clients/Initiate':
+  /rbac/clients/Initiate:
     post:
       tags:
         - BQ - clients
@@ -30,7 +30,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  '/rbac/{clientsid}/clients/Retrieve':
+  /rbac/{clientsid}/getclients/Retrieve:
     get:
       tags:
         - BQ - clients
@@ -54,7 +54,33 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  '/rbac/clients/Retrieve':
+  /rbac/{clientsid}/clients/Initiate:
+    put:
+      tags:
+        - BQ - clients
+      summary: Update clients record
+      description: Update clients record
+      operationId: Updateclients
+      parameters:
+        - $ref: '#/components/parameters/clientsid'
+      requestBody:
+        $ref: '#/components/requestBodies/UpdateclientsRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/UpdateclientsResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /rbac/getAllclients/Retrieve:
     get:
       tags:
         - BQ - clients
@@ -100,7 +126,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /rbac/{subjectsid}/subjects/Retrieve:
+  /rbac/{subjectsid}/getsubjects/Retrieve:
     get:
       tags:
         - BQ - subjects
@@ -150,7 +176,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /rbac/subjects/Retrieve:
+  /rbac/getAllsubjects/Retrieve:
     get:
       tags:
         - BQ - subjects
@@ -196,7 +222,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /rbac/{contextsid}/contexts/Retrieve:
+  /rbac/{contextsid}/getcontexts/Retrieve:
     get:
       tags:
         - BQ - contexts
@@ -246,7 +272,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /rbac/contexts/Retrieve:
+  /rbac/getAllcontexts/Retrieve:
     get:
       tags:
         - BQ - contexts
@@ -292,7 +318,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /rbac/{resourcesid}/resources/Retrieve:
+  /rbac/{resourcesid}/getresources/Retrieve:
     get:
       tags:
         - BQ - resources
@@ -342,7 +368,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /rbac/resources/Retrieve:
+  /rbac/getAllresources/Retrieve:
     get:
       tags:
         - BQ - resources
@@ -388,7 +414,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /rbac/{actionsid}/actions/Retrieve:
+  /rbac/{actionsid}/getactions/Retrieve:
     get:
       tags:
         - BQ - actions
@@ -415,7 +441,7 @@ paths:
   /rbac/{actionsid}/actions/Initiate:
     put:
       tags:
-        - beech
+        - BQ - actions
       summary: Update actions record
       description: Update actions record
       operationId: Updateactions
@@ -438,7 +464,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /rbac/actions/Retrieve:
+  /rbac/getAllactions/Retrieve:
     get:
       tags:
         - BQ - actions
@@ -484,7 +510,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /rbac/{policiesid}/policies/Retrieve:
+  /rbac/{policiesid}/getpolicies/Retrieve:
     get:
       tags:
         - BQ - policies
@@ -534,7 +560,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /rbac/policies/Retrieve:
+  /rbac/getAllpolicies/Retrieve:
     get:
       tags:
         - BQ - policies
@@ -563,28 +589,22 @@ components:
       properties:
         id:
           type: string
-          description: "\n"
-          format: string
+          description: ''
         name:
           type: string
-          description: "\n"
-          format: string
+          description: ''
         type:
           type: string
-          description: "\n"
-          format: string
+          description: ''
         description:
           type: string
-          description: "\n"
-          format: string
+          description: ''
         created_at:
           type: string
-          description: "\n"
-          format: string
+          description: ''
         updated_at:
           type: string
-          description: "\n"
-          format: string
+          description: ''
     clientsResponse:
       type: object
       properties:
@@ -595,24 +615,19 @@ components:
       properties:
         id:
           type: string
-          description: |+
-          format: string
+          description: ''
         subject:
           type: string
-          description: |+
-          format: string
+          description: ''
         client_id:
           type: integer
-          description: |+
-          format: integer
+          description: ''
         created_at:
           type: string
-          description: |+
-          format: string
+          description: ''
         updated_at:
           type: string
-          description: |+
-          format: string
+          description: ''
     subjectsResponse:
       type: object
       properties:
@@ -623,24 +638,19 @@ components:
       properties:
         id:
           type: string
-          description: |+
-          format: string
+          description: ''
         name:
           type: string
-          description: |+
-          format: string
+          description: ''
         description:
           type: string
-          description: |+
-          format: string
+          description: ''
         created_at:
           type: string
-          description: |+
-          format: string
+          description: ''
         updated_at:
           type: string
-          description: |+
-          format: string
+          description: ''
     contextsResponse:
       type: object
       properties:
@@ -651,28 +661,22 @@ components:
       properties:
         id:
           type: string
-          description: |+
-          format: string
+          description: ''
         context_id:
           type: integer
-          description: |+
-          format: integer
+          description: ''
         name:
           type: string
-          description: |+
-          format: string
+          description: ''
         description:
           type: string
-          description: |+
-          format: string
+          description: ''
         created_at:
           type: string
-          description: |+
-          format: string
+          description: ''
         updated_at:
           type: string
-          description: |+
-          format: string
+          description: ''
     resourcesResponse:
       type: object
       properties:
@@ -683,24 +687,19 @@ components:
       properties:
         id:
           type: string
-          description: |+
-          format: string
+          description: ''
         name:
           type: string
-          description: |+
-          format: string
+          description: ''
         description:
           type: string
-          description: |+
-          format: string
+          description: ''
         created_at:
           type: string
-          description: |+
-          format: string
+          description: ''
         updated_at:
           type: string
-          description: |+
-          format: string
+          description: ''
     actionsResponse:
       type: object
       properties:
@@ -711,40 +710,31 @@ components:
       properties:
         id:
           type: string
-          description: |+
-          format: string
+          description: ''
         client_id:
           type: integer
-          description: |+
-          format: integer
+          description: ''
         subject:
           type: string
-          description: |+
-          format: string
+          description: ''
         context_id:
           type: integer
-          description: |+
-          format: integer
+          description: ''
         resource_id:
           type: integer
-          description: |+
-          format: integer
+          description: ''
         action_id:
           type: integer
-          description: |+
-          format: integer
+          description: ''
         is_active:
           type: string
-          description: |+
-          format: string
+          description: ''
         created_at:
           type: string
-          description: |+
-          format: string
+          description: ''
         updated_at:
           type: string
-          description: |+
-          format: string
+          description: ''
     policiesResponse:
       type: object
       properties:
