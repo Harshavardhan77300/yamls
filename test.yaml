@@ -54,7 +54,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /rbac/{clientsid}/clients/Initiate:
+  /rbac/{clientsid}/clients/Update:
     put:
       tags:
         - BQ - clients
@@ -150,7 +150,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /rbac/{subjectsid}/subjects/Initiate:
+  /rbac/{subjectsid}/subjects/Update:
     put:
       tags:
         - BQ - subjects
@@ -246,7 +246,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /rbac/{contextsid}/contexts/Initiate:
+  /rbac/{contextsid}/contexts/Update:
     put:
       tags:
         - BQ - contexts
@@ -342,7 +342,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /rbac/{resourcesid}/resources/Initiate:
+  /rbac/{resourcesid}/resources/Update:
     put:
       tags:
         - BQ - resources
@@ -438,7 +438,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /rbac/{actionsid}/actions/Initiate:
+  /rbac/{actionsid}/actions/Update:
     put:
       tags:
         - BQ - actions
@@ -534,7 +534,7 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /rbac/{policiesid}/policies/Initiate:
+  /rbac/{policiesid}/policies/Update:
     put:
       tags:
         - BQ - policies
