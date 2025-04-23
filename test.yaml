@@ -1,805 +1,805 @@
 openapi: 3.0.1
 info:
-  title: rbac
-  description: API for managing database records.
-  version: 11.0.0
+title: rbac
+description: API for managing database records.
+version: 11.0.0
 servers:
-  - url: http://api.example.com/v1
+- url: http://api.example.com/v1
 paths:
-  /rbac/clients/Initiate:
-    post:
-      tags:
-        - BQ - clients
-      summary: Initialize clients record
-      description: Initialize clients record
-      operationId: Initiateclients
-      requestBody:
-        $ref: '#/components/requestBodies/InitiateclientsRequest'
-      responses:
-        '200':
-          $ref: '#/components/responses/InitiateclientsResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '429':
-          $ref: '#/components/responses/TooManyRequests'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-  /rbac/getAllclients/Retrieve:
-    get:
-      tags:
-        - BQ - clients
-      summary: Retrieve all clients records
-      description: Retrieve all clients records
-      operationId: GetAllclients
-      responses:
-        '200':
-          $ref: '#/components/responses/RetrieveclientsResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '429':
-          $ref: '#/components/responses/TooManyRequests'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-  /rbac/subjects/Initiate:
-    post:
-      tags:
-        - BQ - subjects
-      summary: Initialize subjects record
-      description: Initialize subjects record
-      operationId: Initiatesubjects
-      requestBody:
-        $ref: '#/components/requestBodies/InitiatesubjectsRequest'
-      responses:
-        '200':
-          $ref: '#/components/responses/InitiatesubjectsResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '429':
-          $ref: '#/components/responses/TooManyRequests'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-  /rbac/getAllsubjects/Retrieve:
-    get:
-      tags:
-        - BQ - subjects
-      summary: Retrieve all subjects records
-      description: Retrieve all subjects records
-      operationId: GetAllsubjects
-      responses:
-        '200':
-          $ref: '#/components/responses/RetrievesubjectsResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '429':
-          $ref: '#/components/responses/TooManyRequests'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-  /rbac/contexts/Initiate:
-    post:
-      tags:
-        - BQ - contexts
-      summary: Initialize contexts record
-      description: Initialize contexts record
-      operationId: Initiatecontexts
-      requestBody:
-        $ref: '#/components/requestBodies/InitiatecontextsRequest'
-      responses:
-        '200':
-          $ref: '#/components/responses/InitiatecontextsResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '429':
-          $ref: '#/components/responses/TooManyRequests'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-  /rbac/getAllcontexts/Retrieve:
-    get:
-      tags:
-        - BQ - contexts
-      summary: Retrieve all contexts records
-      description: Retrieve all contexts records
-      operationId: GetAllcontexts
-      responses:
-        '200':
-          $ref: '#/components/responses/RetrievecontextsResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '429':
-          $ref: '#/components/responses/TooManyRequests'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-  /rbac/resources/Initiate:
-    post:
-      tags:
-        - BQ - resources
-      summary: Initialize resources record
-      description: Initialize resources record
-      operationId: Initiateresources
-      requestBody:
-        $ref: '#/components/requestBodies/InitiateresourcesRequest'
-      responses:
-        '200':
-          $ref: '#/components/responses/InitiateresourcesResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '429':
-          $ref: '#/components/responses/TooManyRequests'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-  /rbac/getAllresources/Retrieve:
-    get:
-      tags:
-        - BQ - resources
-      summary: Retrieve all resources records
-      description: Retrieve all resources records
-      operationId: GetAllresources
-      responses:
-        '200':
-          $ref: '#/components/responses/RetrieveresourcesResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '429':
-          $ref: '#/components/responses/TooManyRequests'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-  /rbac/actions/Initiate:
-    post:
-      tags:
-        - BQ - actions
-      summary: Initialize actions record
-      description: Initialize actions record
-      operationId: Initiateactions
-      requestBody:
-        $ref: '#/components/requestBodies/InitiateactionsRequest'
-      responses:
-        '200':
-          $ref: '#/components/responses/InitiateactionsResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '429':
-          $ref: '#/components/responses/TooManyRequests'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-  /rbac/getAllactions/Retrieve:
-    get:
-      tags:
-        - BQ - actions
-      summary: Retrieve all actions records
-      description: Retrieve all actions records
-      operationId: GetAllactions
-      responses:
-        '200':
-          $ref: '#/components/responses/RetrieveactionsResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '429':
-          $ref: '#/components/responses/TooManyRequests'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-  /rbac/policies/Initiate:
-    post:
-      tags:
-        - BQ - policies
-      summary: Initialize policies record
-      description: Initialize policies record
-      operationId: Initiatepolicies
-      requestBody:
-        $ref: '#/components/requestBodies/InitiatepoliciesRequest'
-      responses:
-        '200':
-          $ref: '#/components/responses/InitiatepoliciesResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '429':
-          $ref: '#/components/responses/TooManyRequests'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-  /rbac/getAllpolicies/Retrieve:
-    get:
-      tags:
-        - BQ - policies
-      summary: Retrieve all policies records
-      description: Retrieve all policies records
-      operationId: GetAllpolicies
-      responses:
-        '200':
-          $ref: '#/components/responses/RetrievepoliciesResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '429':
-          $ref: '#/components/responses/TooManyRequests'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+/rbac/clients/Initiate:
+post:
+tags:
+- BQ - clients
+summary: Initialize clients record
+description: Initialize clients record
+operationId: Initiateclients
+requestBody:
+$ref: '#/components/requestBodies/InitiateclientsRequest'
+responses:
+'200':
+$ref: '#/components/responses/InitiateclientsResponse'
+'400':
+$ref: '#/components/responses/BadRequest'
+'401':
+$ref: '#/components/responses/Unauthorized'
+'403':
+$ref: '#/components/responses/Forbidden'
+'404':
+$ref: '#/components/responses/NotFound'
+'429':
+$ref: '#/components/responses/TooManyRequests'
+'500':
+$ref: '#/components/responses/InternalServerError'
+/rbac/getAllclients/Retrieve:
+get:
+tags:
+- BQ - clients
+summary: Retrieve all clients records
+description: Retrieve all clients records
+operationId: GetAllclients
+responses:
+'200':
+$ref: '#/components/responses/RetrieveclientsResponse'
+'400':
+$ref: '#/components/responses/BadRequest'
+'401':
+$ref: '#/components/responses/Unauthorized'
+'403':
+$ref: '#/components/responses/Forbidden'
+'404':
+$ref: '#/components/responses/NotFound'
+'429':
+$ref: '#/components/responses/TooManyRequests'
+'500':
+$ref: '#/components/responses/InternalServerError'
+/rbac/subjects/Initiate:
+post:
+tags:
+- BQ - subjects
+summary: Initialize subjects record
+description: Initialize subjects record
+operationId: Initiatesubjects
+requestBody:
+$ref: '#/components/requestBodies/InitiatesubjectsRequest'
+responses:
+'200':
+$ref: '#/components/responses/InitiatesubjectsResponse'
+'400':
+$ref: '#/components/responses/BadRequest'
+'401':
+$ref: '#/components/responses/Unauthorized'
+'403':
+$ref: '#/components/responses/Forbidden'
+'404':
+$ref: '#/components/responses/NotFound'
+'429':
+$ref: '#/components/responses/TooManyRequests'
+'500':
+$ref: '#/components/responses/InternalServerError'
+/rbac/getAllsubjects/Retrieve:
+get:
+tags:
+- BQ - subjects
+summary: Retrieve all subjects records
+description: Retrieve all subjects records
+operationId: GetAllsubjects
+responses:
+'200':
+$ref: '#/components/responses/RetrievesubjectsResponse'
+'400':
+$ref: '#/components/responses/BadRequest'
+'401':
+$ref: '#/components/responses/Unauthorized'
+'403':
+$ref: '#/components/responses/Forbidden'
+'404':
+$ref: '#/components/responses/NotFound'
+'429':
+$ref: '#/components/responses/TooManyRequests'
+'500':
+$ref: '#/components/responses/InternalServerError'
+/rbac/contexts/Initiate:
+post:
+tags:
+- BQ - contexts
+summary: Initialize contexts record
+description: Initialize contexts record
+operationId: Initiatecontexts
+requestBody:
+$ref: '#/components/requestBodies/InitiatecontextsRequest'
+responses:
+'200':
+$ref: '#/components/responses/InitiatecontextsResponse'
+'400':
+$ref: '#/components/responses/BadRequest'
+'401':
+$ref: '#/components/responses/Unauthorized'
+'403':
+$ref: '#/components/responses/Forbidden'
+'404':
+$ref: '#/components/responses/NotFound'
+'429':
+$ref: '#/components/responses/TooManyRequests'
+'500':
+$ref: '#/components/responses/InternalServerError'
+/rbac/getAllcontexts/Retrieve:
+get:
+tags:
+- BQ - contexts
+summary: Retrieve all contexts records
+description: Retrieve all contexts records
+operationId: GetAllcontexts
+responses:
+'200':
+$ref: '#/components/responses/RetrievecontextsResponse'
+'400':
+$ref: '#/components/responses/BadRequest'
+'401':
+$ref: '#/components/responses/Unauthorized'
+'403':
+$ref: '#/components/responses/Forbidden'
+'404':
+$ref: '#/components/responses/NotFound'
+'429':
+$ref: '#/components/responses/TooManyRequests'
+'500':
+$ref: '#/components/responses/InternalServerError'
+/rbac/resources/Initiate:
+post:
+tags:
+- BQ - resources
+summary: Initialize resources record
+description: Initialize resources record
+operationId: Initiateresources
+requestBody:
+$ref: '#/components/requestBodies/InitiateresourcesRequest'
+responses:
+'200':
+$ref: '#/components/responses/InitiateresourcesResponse'
+'400':
+$ref: '#/components/responses/BadRequest'
+'401':
+$ref: '#/components/responses/Unauthorized'
+'403':
+$ref: '#/components/responses/Forbidden'
+'404':
+$ref: '#/components/responses/NotFound'
+'429':
+$ref: '#/components/responses/TooManyRequests'
+'500':
+$ref: '#/components/responses/InternalServerError'
+/rbac/getAllresources/Retrieve:
+get:
+tags:
+- BQ - resources
+summary: Retrieve all resources records
+description: Retrieve all resources records
+operationId: GetAllresources
+responses:
+'200':
+$ref: '#/components/responses/RetrieveresourcesResponse'
+'400':
+$ref: '#/components/responses/BadRequest'
+'401':
+$ref: '#/components/responses/Unauthorized'
+'403':
+$ref: '#/components/responses/Forbidden'
+'404':
+$ref: '#/components/responses/NotFound'
+'429':
+$ref: '#/components/responses/TooManyRequests'
+'500':
+$ref: '#/components/responses/InternalServerError'
+/rbac/actions/Initiate:
+post:
+tags:
+- BQ - actions
+summary: Initialize actions record
+description: Initialize actions record
+operationId: Initiateactions
+requestBody:
+$ref: '#/components/requestBodies/InitiateactionsRequest'
+responses:
+'200':
+$ref: '#/components/responses/InitiateactionsResponse'
+'400':
+$ref: '#/components/responses/BadRequest'
+'401':
+$ref: '#/components/responses/Unauthorized'
+'403':
+$ref: '#/components/responses/Forbidden'
+'404':
+$ref: '#/components/responses/NotFound'
+'429':
+$ref: '#/components/responses/TooManyRequests'
+'500':
+$ref: '#/components/responses/InternalServerError'
+/rbac/getAllactions/Retrieve:
+get:
+tags:
+- BQ - actions
+summary: Retrieve all actions records
+description: Retrieve all actions records
+operationId: GetAllactions
+responses:
+'200':
+$ref: '#/components/responses/RetrieveactionsResponse'
+'400':
+$ref: '#/components/responses/BadRequest'
+'401':
+$ref: '#/components/responses/Unauthorized'
+'403':
+$ref: '#/components/responses/Forbidden'
+'404':
+$ref: '#/components/responses/NotFound'
+'429':
+$ref: '#/components/responses/TooManyRequests'
+'500':
+$ref: '#/components/responses/InternalServerError'
+/rbac/policies/Initiate:
+post:
+tags:
+- BQ - policies
+summary: Initialize policies record
+description: Initialize policies record
+operationId: Initiatepolicies
+requestBody:
+$ref: '#/components/requestBodies/InitiatepoliciesRequest'
+responses:
+'200':
+$ref: '#/components/responses/InitiatepoliciesResponse'
+'400':
+$ref: '#/components/responses/BadRequest'
+'401':
+$ref: '#/components/responses/Unauthorized'
+'403':
+$ref: '#/components/responses/Forbidden'
+'404':
+$ref: '#/components/responses/NotFound'
+'429':
+$ref: '#/components/responses/TooManyRequests'
+'500':
+$ref: '#/components/responses/InternalServerError'
+/rbac/getAllpolicies/Retrieve:
+get:
+tags:
+- BQ - policies
+summary: Retrieve all policies records
+description: Retrieve all policies records
+operationId: GetAllpolicies
+responses:
+'200':
+$ref: '#/components/responses/RetrievepoliciesResponse'
+'400':
+$ref: '#/components/responses/BadRequest'
+'401':
+$ref: '#/components/responses/Unauthorized'
+'403':
+$ref: '#/components/responses/Forbidden'
+'404':
+$ref: '#/components/responses/NotFound'
+'429':
+$ref: '#/components/responses/TooManyRequests'
+'500':
+$ref: '#/components/responses/InternalServerError'
 components:
-  schemas:
-    clients:
-      type: object
-      properties:
-        id:
-          type: string
-          description: ''
-          format: string
-        name:
-          type: string
-          description: ''
-          format: string
-        type:
-          type: string
-          description: ''
-          format: string
-        description:
-          type: string
-          description: ''
-          format: string
-        created_at:
-          type: string
-          description: ''
-          format: string
-        updated_at:
-          type: string
-          description: ''
-          format: string
-    InitiateclientsResponse:
-      type: object
-      properties:
-        clients:
-          $ref: '#/components/schemas/clients'
-    InitiateclientsRequest:
-      type: object
-      properties:
-        clients:
-          $ref: '#/components/schemas/clients'
-    RetrieveclientsResponse:
-      type: object
-      properties:
-        clients:
-          $ref: '#/components/schemas/clients'
-    RetrieveclientsRequest:
-      type: object
-      properties:
-        clients:
-          $ref: '#/components/schemas/clients'
-    subjects:
-      type: object
-      properties:
-        id:
-          type: string
-          description: ''
-          format: string
-        subject:
-          type: string
-          description: ''
-          format: string
-        client_id:
-          type: integer
-          description: ''
-          format: integer
-        created_at:
-          type: string
-          description: ''
-          format: string
-        updated_at:
-          type: string
-          description: ''
-          format: string
-    InitiatesubjectsResponse:
-      type: object
-      properties:
-        subjects:
-          $ref: '#/components/schemas/subjects'
-    InitiatesubjectsRequest:
-      type: object
-      properties:
-        subjects:
-          $ref: '#/components/schemas/subjects'
-    RetrievesubjectsResponse:
-      type: object
-      properties:
-        subjects:
-          $ref: '#/components/schemas/subjects'
-    RetrievesubjectsRequest:
-      type: object
-      properties:
-        subjects:
-          $ref: '#/components/schemas/subjects'
-    contexts:
-      type: object
-      properties:
-        id:
-          type: string
-          description: ''
-          format: string
-        name:
-          type: string
-          description: ''
-          format: string
-        description:
-          type: string
-          description: ''
-          format: string
-        created_at:
-          type: string
-          description: ''
-          format: string
-        updated_at:
-          type: string
-          description: ''
-          format: string
-    InitiatecontextsResponse:
-      type: object
-      properties:
-        contexts:
-          $ref: '#/components/schemas/contexts'
-    InitiatecontextsRequest:
-      type: object
-      properties:
-        contexts:
-          $ref: '#/components/schemas/contexts'
-    RetrievecontextsResponse:
-      type: object
-      properties:
-        contexts:
-          $ref: '#/components/schemas/contexts'
-    RetrievecontextsRequest:
-      type: object
-      properties:
-        contexts:
-          $ref: '#/components/schemas/contexts'
-    resources:
-      type: object
-      properties:
-        id:
-          type: string
-          description: ''
-          format: string
-        context_id:
-          type: integer
-          description: ''
-          format: integer
-        name:
-          type: string
-          description: ''
-          format: string
-        description:
-          type: string
-          description: ''
-          format: string
-        created_at:
-          type: string
-          description: ''
-          format: string
-        updated_at:
-          type: string
-          description: ''
-          format: string
-    InitiateresourcesResponse:
-      type: object
-      properties:
-        resources:
-          $ref: '#/components/schemas/resources'
-    InitiateresourcesRequest:
-      type: object
-      properties:
-        resources:
-          $ref: '#/components/schemas/resources'
-    RetrieveresourcesResponse:
-      type: object
-      properties:
-        resources:
-          $ref: '#/components/schemas/resources'
-    RetrieveresourcesRequest:
-      type: object
-      properties:
-        resources:
-          $ref: '#/components/schemas/resources'
-    actions:
-      type: object
-      properties:
-        id:
-          type: string
-          description: ''
-          format: string
-        name:
-          type: string
-          description: ''
-          format: string
-        description:
-          type: string
-          description: ''
-          format: string
-        created_at:
-          type: string
-          description: ''
-          format: string
-        updated_at:
-          type: string
-          description: ''
-          format: string
-    InitiateactionsResponse:
-      type: object
-      properties:
-        actions:
-          $ref: '#/components/schemas/actions'
-    InitiateactionsRequest:
-      type: object
-      properties:
-        actions:
-          $ref: '#/components/schemas/actions'
-    RetrieveactionsResponse:
-      type: object
-      properties:
-        actions:
-          $ref: '#/components/schemas/actions'
-    RetrieveactionsRequest:
-      type: object
-      properties:
-        actions:
-          $ref: '#/components/schemas/actions'
-    policies:
-      type: object
-      properties:
-        id:
-          type: string
-          description: ''
-          format: string
-        client_id:
-          type: integer
-          description: ''
-          format: integer
-        subject:
-          type: string
-          description: ''
-          format: string
-        context_id:
-          type: integer
-          description: ''
-          format: integer
-        resource_id:
-          type: integer
-          description: ''
-          format: integer
-        action_id:
-          type: integer
-          description: ''
-          format: integer
-        is_active:
-          type: string
-          description: ''
-          format: string
-        created_at:
-          type: string
-          description: ''
-          format: string
-        updated_at:
-          type: string
-          description: ''
-          format: string
-    InitiatepoliciesResponse:
-      type: object
-      properties:
-        policies:
-          $ref: '#/components/schemas/policies'
-    InitiatepoliciesRequest:
-      type: object
-      properties:
-        policies:
-          $ref: '#/components/schemas/policies'
-    RetrievepoliciesResponse:
-      type: object
-      properties:
-        policies:
-          $ref: '#/components/schemas/policies'
-    RetrievepoliciesRequest:
-      type: object
-      properties:
-        policies:
-          $ref: '#/components/schemas/policies'
-    HTTPError:
-      type: object
-      properties:
-        status_code:
-          type: string
-          description: ''
-        status:
-          type: string
-          description: ''
-        message:
-          type: string
-          description: ''
-  parameters:
-    clientsid:
-      name: clientsid
-      in: path
-      required: true
-      style: simple
-      schema:
-        type: string
-    subjectsid:
-      name: subjectsid
-      in: path
-      required: true
-      style: simple
-      schema:
-        type: string
-    contextsid:
-      name: contextsid
-      in: path
-      required: true
-      style: simple
-      schema:
-        type: string
-    resourcesid:
-      name: resourcesid
-      in: path
-      required: true
-      style: simple
-      schema:
-        type: string
-    actionsid:
-      name: actionsid
-      in: path
-      required: true
-      style: simple
-      schema:
-        type: string
-    policiesid:
-      name: policiesid
-      in: path
-      required: true
-      style: simple
-      schema:
-        type: string
-  requestBodies:
-    InitiateclientsRequest:
-      description: Initiateclients
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/InitiateclientsRequest'
-    RetrieveclientsRequest:
-      description: Retrieveclients
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/RetrieveclientsRequest'
-    InitiatesubjectsRequest:
-      description: Initiatesubjects
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/InitiatesubjectsRequest'
-    RetrievesubjectsRequest:
-      description: Retrievesubjects
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/RetrievesubjectsRequest'
-    InitiatecontextsRequest:
-      description: Initiatecontexts
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/InitiatecontextsRequest'
-    RetrievecontextsRequest:
-      description: Retrievecontexts
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/RetrievecontextsRequest'
-    InitiateresourcesRequest:
-      description: Initiateresources
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/InitiateresourcesRequest'
-    RetrieveresourcesRequest:
-      description: Retrieveresources
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/RetrieveresourcesRequest'
-    InitiateactionsRequest:
-      description: Initiateactions
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/InitiateactionsRequest'
-    RetrieveactionsRequest:
-      description: Retrieveactions
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/RetrieveactionsRequest'
-    InitiatepoliciesRequest:
-      description: Initiatepolicies
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/InitiatepoliciesRequest'
-    RetrievepoliciesRequest:
-      description: Retrievepolicies
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/RetrievepoliciesRequest'
-  responses:
-    InitiateclientsResponse:
-      description: clients created
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/InitiateclientsResponse'
-    RetrieveclientsResponse:
-      description: clients details
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/RetrieveclientsResponse'
-    InitiatesubjectsResponse:
-      description: subjects created
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/InitiatesubjectsResponse'
-    RetrievesubjectsResponse:
-      description: subjects details
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/RetrievesubjectsResponse'
-    InitiatecontextsResponse:
-      description: contexts created
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/InitiatecontextsResponse'
-    RetrievecontextsResponse:
-      description: contexts details
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/RetrievecontextsResponse'
-    InitiateresourcesResponse:
-      description: resources created
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/InitiateresourcesResponse'
-    RetrieveresourcesResponse:
-      description: resources details
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/RetrieveresourcesResponse'
-    InitiateactionsResponse:
-      description: actions created
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/InitiateactionsResponse'
-    RetrieveactionsResponse:
-      description: actions details
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/RetrieveactionsResponse'
-    InitiatepoliciesResponse:
-      description: policies created
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/InitiatepoliciesResponse'
-    RetrievepoliciesResponse:
-      description: policies details
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/RetrievepoliciesResponse'
-    BadRequest:
-      description: BadRequest
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/HTTPError'
-    Unauthorized:
-      description: Unauthorized
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/HTTPError'
-    Forbidden:
-      description: Forbidden
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/HTTPError'
-    NotFound:
-      description: NotFound
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/HTTPError'
-    TooManyRequests:
-      description: TooManyRequests
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/HTTPError'
-    InternalServerError:
-      description: InternalServerError
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/HTTPError'
+schemas:
+clients:
+type: object
+properties:
+id:
+type: string
+description: ''
+format: string
+name:
+type: string
+description: ''
+format: string
+type:
+type: string
+description: ''
+format: string
+description:
+type: string
+description: ''
+format: string
+created_at:
+type: string
+description: ''
+format: string
+updated_at:
+type: string
+description: ''
+format: string
+InitiateclientsResponse:
+type: object
+properties:
+clients:
+$ref: '#/components/schemas/clients'
+InitiateclientsRequest:
+type: object
+properties:
+clients:
+$ref: '#/components/schemas/clients'
+RetrieveclientsResponse:
+type: object
+properties:
+clients:
+$ref: '#/components/schemas/clients'
+RetrieveclientsRequest:
+type: object
+properties:
+clients:
+$ref: '#/components/schemas/clients'
+subjects:
+type: object
+properties:
+id:
+type: string
+description: ''
+format: string
+subject:
+type: string
+description: ''
+format: string
+client_id:
+type: integer
+description: ''
+format: integer
+created_at:
+type: string
+description: ''
+format: string
+updated_at:
+type: string
+description: ''
+format: string
+InitiatesubjectsResponse:
+type: object
+properties:
+subjects:
+$ref: '#/components/schemas/subjects'
+InitiatesubjectsRequest:
+type: object
+properties:
+subjects:
+$ref: '#/components/schemas/subjects'
+RetrievesubjectsResponse:
+type: object
+properties:
+subjects:
+$ref: '#/components/schemas/subjects'
+RetrievesubjectsRequest:
+type: object
+properties:
+subjects:
+$ref: '#/components/schemas/subjects'
+contexts:
+type: object
+properties:
+id:
+type: string
+description: ''
+format: string
+name:
+type: string
+description: ''
+format: string
+description:
+type: string
+description: ''
+format: string
+created_at:
+type: string
+description: ''
+format: string
+updated_at:
+type: string
+description: ''
+format: string
+InitiatecontextsResponse:
+type: object
+properties:
+contexts:
+$ref: '#/components/schemas/contexts'
+InitiatecontextsRequest:
+type: object
+properties:
+contexts:
+$ref: '#/components/schemas/contexts'
+RetrievecontextsResponse:
+type: object
+properties:
+contexts:
+$ref: '#/components/schemas/contexts'
+RetrievecontextsRequest:
+type: object
+properties:
+contexts:
+$ref: '#/components/schemas/contexts'
+resources:
+type: object
+properties:
+id:
+type: string
+description: ''
+format: string
+context_id:
+type: integer
+description: ''
+format: integer
+name:
+type: string
+description: ''
+format: string
+description:
+type: string
+description: ''
+format: string
+created_at:
+type: string
+description: ''
+format: string
+updated_at:
+type: string
+description: ''
+format: string
+InitiateresourcesResponse:
+type: object
+properties:
+resources:
+$ref: '#/components/schemas/resources'
+InitiateresourcesRequest:
+type: object
+properties:
+resources:
+$ref: '#/components/schemas/resources'
+RetrieveresourcesResponse:
+type: object
+properties:
+resources:
+$ref: '#/components/schemas/resources'
+RetrieveresourcesRequest:
+type: object
+properties:
+resources:
+$ref: '#/components/schemas/resources'
+actions:
+type: object
+properties:
+id:
+type: string
+description: ''
+format: string
+name:
+type: string
+description: ''
+format: string
+description:
+type: string
+description: ''
+format: string
+created_at:
+type: string
+description: ''
+format: string
+updated_at:
+type: string
+description: ''
+format: string
+InitiateactionsResponse:
+type: object
+properties:
+actions:
+$ref: '#/components/schemas/actions'
+InitiateactionsRequest:
+type: object
+properties:
+actions:
+$ref: '#/components/schemas/actions'
+RetrieveactionsResponse:
+type: object
+properties:
+actions:
+$ref: '#/components/schemas/actions'
+RetrieveactionsRequest:
+type: object
+properties:
+actions:
+$ref: '#/components/schemas/actions'
+policies:
+type: object
+properties:
+id:
+type: string
+description: ''
+format: string
+client_id:
+type: integer
+description: ''
+format: integer
+subject:
+type: string
+description: ''
+format: string
+context_id:
+type: integer
+description: ''
+format: integer
+resource_id:
+type: integer
+description: ''
+format: integer
+action_id:
+type: integer
+description: ''
+format: integer
+is_active:
+type: string
+description: ''
+format: string
+created_at:
+type: string
+description: ''
+format: string
+updated_at:
+type: string
+description: ''
+format: string
+InitiatepoliciesResponse:
+type: object
+properties:
+policies:
+$ref: '#/components/schemas/policies'
+InitiatepoliciesRequest:
+type: object
+properties:
+policies:
+$ref: '#/components/schemas/policies'
+RetrievepoliciesResponse:
+type: object
+properties:
+policies:
+$ref: '#/components/schemas/policies'
+RetrievepoliciesRequest:
+type: object
+properties:
+policies:
+$ref: '#/components/schemas/policies'
+HTTPError:
+type: object
+properties:
+status_code:
+type: string
+description: ''
+status:
+type: string
+description: ''
+message:
+type: string
+description: ''
+parameters:
+clientsid:
+name: clientsid
+in: path
+required: true
+style: simple
+schema:
+type: string
+subjectsid:
+name: subjectsid
+in: path
+required: true
+style: simple
+schema:
+type: string
+contextsid:
+name: contextsid
+in: path
+required: true
+style: simple
+schema:
+type: string
+resourcesid:
+name: resourcesid
+in: path
+required: true
+style: simple
+schema:
+type: string
+actionsid:
+name: actionsid
+in: path
+required: true
+style: simple
+schema:
+type: string
+policiesid:
+name: policiesid
+in: path
+required: true
+style: simple
+schema:
+type: string
+requestBodies:
+InitiateclientsRequest:
+description: Initiateclients
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/InitiateclientsRequest'
+RetrieveclientsRequest:
+description: Retrieveclients
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/RetrieveclientsRequest'
+InitiatesubjectsRequest:
+description: Initiatesubjects
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/InitiatesubjectsRequest'
+RetrievesubjectsRequest:
+description: Retrievesubjects
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/RetrievesubjectsRequest'
+InitiatecontextsRequest:
+description: Initiatecontexts
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/InitiatecontextsRequest'
+RetrievecontextsRequest:
+description: Retrievecontexts
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/RetrievecontextsRequest'
+InitiateresourcesRequest:
+description: Initiateresources
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/InitiateresourcesRequest'
+RetrieveresourcesRequest:
+description: Retrieveresources
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/RetrieveresourcesRequest'
+InitiateactionsRequest:
+description: Initiateactions
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/InitiateactionsRequest'
+RetrieveactionsRequest:
+description: Retrieveactions
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/RetrieveactionsRequest'
+InitiatepoliciesRequest:
+description: Initiatepolicies
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/InitiatepoliciesRequest'
+RetrievepoliciesRequest:
+description: Retrievepolicies
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/RetrievepoliciesRequest'
+responses:
+InitiateclientsResponse:
+description: clients created
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/InitiateclientsResponse'
+RetrieveclientsResponse:
+description: clients details
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/RetrieveclientsResponse'
+InitiatesubjectsResponse:
+description: subjects created
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/InitiatesubjectsResponse'
+RetrievesubjectsResponse:
+description: subjects details
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/RetrievesubjectsResponse'
+InitiatecontextsResponse:
+description: contexts created
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/InitiatecontextsResponse'
+RetrievecontextsResponse:
+description: contexts details
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/RetrievecontextsResponse'
+InitiateresourcesResponse:
+description: resources created
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/InitiateresourcesResponse'
+RetrieveresourcesResponse:
+description: resources details
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/RetrieveresourcesResponse'
+InitiateactionsResponse:
+description: actions created
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/InitiateactionsResponse'
+RetrieveactionsResponse:
+description: actions details
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/RetrieveactionsResponse'
+InitiatepoliciesResponse:
+description: policies created
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/InitiatepoliciesResponse'
+RetrievepoliciesResponse:
+description: policies details
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/RetrievepoliciesResponse'
+BadRequest:
+description: BadRequest
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/HTTPError'
+Unauthorized:
+description: Unauthorized
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/HTTPError'
+Forbidden:
+description: Forbidden
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/HTTPError'
+NotFound:
+description: NotFound
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/HTTPError'
+TooManyRequests:
+description: TooManyRequests
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/HTTPError'
+InternalServerError:
+description: InternalServerError
+content:
+application/json:
+schema:
+$ref: '#/components/schemas/HTTPError'
