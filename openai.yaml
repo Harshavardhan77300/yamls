@@ -1,0 +1,227 @@
+openapi: 3.0.1
+info:
+  title: OpenAI-GenAI-Service
+  description: Handles AI text generation and embeddings using OpenAI endpoints for content creation and semantic processing.
+  version: 1.0.0
+
+servers:
+  - url: https://api.openai.com/v1
+
+paths:
+
+  /responses:
+    post:
+      tags:
+        - TextGeneration
+      summary: Generate AI response from input prompt
+      description: Generate text output using OpenAI large language models.
+      operationId: GenerateAIResponse
+      requestBody:
+        $ref: '#/components/requestBodies/GenerateAIResponseRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/GenerateAIResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /embeddings:
+    post:
+      tags:
+        - Embeddings
+      summary: Generate vector embeddings
+      description: Create embeddings for semantic search, clustering, and similarity analysis.
+      operationId: GenerateEmbeddings
+      requestBody:
+        $ref: '#/components/requestBodies/GenerateEmbeddingsRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/GenerateEmbeddingsResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+components:
+
+  schemas:
+
+    ############################
+    # Text Generation Schemas
+    ############################
+
+    GenerateAIResponseRequest:
+      type: object
+      properties:
+        model:
+          type: string
+          example: gpt-5.2
+        input:
+          type: string
+          example: Explain microfrontend architecture.
+        max_output_tokens:
+          type: integer
+          example: 500
+
+    MessageContent:
+      type: object
+      properties:
+        type:
+          type: string
+        text:
+          type: string
+
+    OutputMessage:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        role:
+          type: string
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageContent'
+
+    GenerateAIResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        object:
+          type: string
+        model:
+          type: string
+        output:
+          type: array
+          items:
+            $ref: '#/components/schemas/OutputMessage'
+
+    ############################
+    # Embeddings Schemas
+    ############################
+
+    GenerateEmbeddingsRequest:
+      type: object
+      properties:
+        model:
+          type: string
+          example: text-embedding-3-large
+        input:
+          type: string
+          example: Microfrontend architecture
+
+    EmbeddingData:
+      type: object
+      properties:
+        index:
+          type: integer
+        embedding:
+          type: array
+          items:
+            type: number
+
+    GenerateEmbeddingsResponse:
+      type: object
+      properties:
+        object:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/EmbeddingData'
+        model:
+          type: string
+
+    ############################
+    # Error Schema
+    ############################
+
+    HTTPError:
+      type: object
+      properties:
+        status_code:
+          type: string
+        status:
+          type: string
+        message:
+          type: string
+
+  ############################
+  # Request Bodies
+  ############################
+
+  requestBodies:
+
+    GenerateAIResponseRequest:
+      description: AI text generation request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GenerateAIResponseRequest'
+
+    GenerateEmbeddingsRequest:
+      description: Embedding generation request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GenerateEmbeddingsRequest'
+
+  ############################
+  # Responses
+  ############################
+
+  responses:
+
+    GenerateAIResponse:
+      description: AI generated response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GenerateAIResponse'
+
+    GenerateEmbeddingsResponse:
+      description: Embedding vector response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GenerateEmbeddingsResponse'
+
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HTTPError'
+
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HTTPError'
+
+    TooManyRequests:
+      description: Too Many Requests
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HTTPError'
+
+    InternalServerError:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HTTPError'
